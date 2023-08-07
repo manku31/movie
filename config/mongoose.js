@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-//   "mongodb+srv://ps1234:ps1234@cluster0.yfl43v3.mongodb.net/startupz"       // for mongoDB atlas server
-mongoose.connect("mongodb://localhost/movie");
+
+mongoose.connect("mongodb+srv://ps1234:ps1234@cluster0.yfl43v3.mongodb.net/movie");
 
 const db = mongoose.connection;
 
