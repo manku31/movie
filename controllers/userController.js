@@ -2,10 +2,10 @@ const User = require("../models/Users");
 
 // redirect to login page
 module.exports.login = function (req, res) {
-  // its restrick the user to signup page because he already sign up
-  // if (req.isAuthenticated()) {
-  //   return res.redirect("/user/dashboad");
-  // }
+  //its restrick the user to signup page because he already sign up
+  if (req.isAuthenticated()) {
+    return res.redirect("/");
+  }
   return res.render("login", {
     title: "Login",
   });
@@ -14,15 +14,15 @@ module.exports.login = function (req, res) {
 // redirect to Register Page
 module.exports.register = function (req, res) {
   // // its restrick the user to signup page because he already sign up
-  // if (req.isAuthenticated()) {
-  //   return res.redirect("/user/dashboad");
-  // }
+  if (req.isAuthenticated()) {
+    return res.redirect("/");
+  }
   return res.render("register", {
     title: "Register",
   });
 };
 
-// Create new user
+//Create new user
 module.exports.create = async function (req, res) {
   try {
     // checking password and confirm password are same or not
@@ -49,6 +49,7 @@ module.exports.create = async function (req, res) {
     console.log("Error in Creating new User, Error ==> ", err);
   }
 };
+
 
 // creating session
 module.exports.createSession = function (req, res) {
